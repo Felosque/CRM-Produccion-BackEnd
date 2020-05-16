@@ -21,6 +21,7 @@ public class WorkShift implements Serializable {
 	@GeneratedValue(strategy=GenerationType.AUTO)
 	private Integer code;
 
+	@Column(name = "description", length = 255)
 	private String description;
 
 	//bi-directional many-to-one association to HumanResource
@@ -57,7 +58,6 @@ public class WorkShift implements Serializable {
 	public HumanResource addHumanResource(HumanResource humanResource) {
 		getHumanResources().add(humanResource);
 		humanResource.setWorkShift(this);
-
 		return humanResource;
 	}
 
