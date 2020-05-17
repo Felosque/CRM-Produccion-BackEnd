@@ -2,5 +2,5 @@ package com.crmunibague.crmunibague.statebrachoffice;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 
-public interface StateBrachOfficeRepository extends JpaRepository<StateBrachOffice, Integer> {
+public interface StateBranchOfficeRepository extends JpaRepository<StateBranchOffice, Integer> {
 }
