@@ -9,7 +9,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@RequestMapping("crm-unibague/v1/produccion/RequestStatus")
+@RequestMapping("scm-unibague/RequestStatus")
 @RestController
 public class RequestStatusRESTController {
 

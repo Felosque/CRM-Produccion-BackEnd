@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@RequestMapping("crm-unibague/v1/produccion/StateBranchOffice")
+@RequestMapping("scm-unibague/StateBranchOffice")
 @RestController
 public class StateBranchRESTController {
 
