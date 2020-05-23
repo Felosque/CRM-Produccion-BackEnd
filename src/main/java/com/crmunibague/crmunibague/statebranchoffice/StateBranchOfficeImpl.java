@@ -1,4 +1,4 @@
-package com.crmunibague.crmunibague.statebrachoffice;
+package com.crmunibague.crmunibague.statebranchoffice;
 
 import com.crmunibague.crmunibague.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;

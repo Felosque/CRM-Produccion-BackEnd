@@ -1,4 +1,4 @@
-package com.crmunibague.crmunibague.statebrachoffice;
+package com.crmunibague.crmunibague.statebranchoffice;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -15,6 +15,10 @@ public class StateBranchOffice implements Serializable {
 	private String description;
 
 	public StateBranchOffice() {
+	}
+
+	public StateBranchOffice(Integer code) {
+		this.code = code;
 	}
 
 	public Integer getCode() {
