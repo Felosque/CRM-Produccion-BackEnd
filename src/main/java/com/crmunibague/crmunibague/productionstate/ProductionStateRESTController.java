@@ -8,7 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@RequestMapping("crm-unibague/ProductionState")
+@RequestMapping("scm-unibague/ProductionState")
 @RestController
 public class ProductionStateRESTController {
 
