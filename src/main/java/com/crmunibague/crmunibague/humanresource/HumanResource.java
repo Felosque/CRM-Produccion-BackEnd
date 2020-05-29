@@ -1,6 +1,5 @@
 package com.crmunibague.crmunibague.humanresource;
 
-import com.crmunibague.crmunibague.machinery.Machinery;
 import com.crmunibague.crmunibague.workshift.WorkShift;
 
 import java.io.Serializable;
@@ -30,10 +29,6 @@ public class HumanResource implements Serializable {
 	@ManyToOne
 	@JoinColumn(name="work_shiftid")
 	private WorkShift workShift;
-
-	//bi-directional many-to-one association to Machinery
-	@OneToMany(mappedBy="humanResourceBean")
-	private List<Machinery> machineries;
 
 	public HumanResource() {
 	}
@@ -68,27 +63,6 @@ public class HumanResource implements Serializable {
 
 	public void setWorkShift(WorkShift workShift) {
 		this.workShift = workShift;
-	}
-
-	public List<Machinery> getMachineries() {
-		return this.machineries;
-	}
-
-	public void setMachineries(List<Machinery> machineries) {
-		this.machineries = machineries;
-	}
-
-	public Machinery addMachinery(Machinery machinery) {
-		getMachineries().add(machinery);
-		machinery.setHumanResourceBean(this);
-		return machinery;
-	}
-
-	public Machinery removeMachinery(Machinery machinery) {
-		getMachineries().remove(machinery);
-		machinery.setHumanResourceBean(null);
-
-		return machinery;
 	}
 
 }

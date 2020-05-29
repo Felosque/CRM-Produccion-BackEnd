@@ -1,21 +1,20 @@
-package com.crmunibague.crmunibague.requeststatus;
+package com.crmunibague.crmunibague.statebrachoffice;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.util.List;
 
 @Entity
-@Table(name="request_status")
-public class RequestStatus implements Serializable {
+@Table(name="state_branch_offices")
+public class StateBranchOffice implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.IDENTITY)
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private Integer code;
 
 	private String description;
 
-	public RequestStatus() {
+	public StateBranchOffice() {
 	}
 
 	public Integer getCode() {

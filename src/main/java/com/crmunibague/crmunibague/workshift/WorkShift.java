@@ -1,7 +1,5 @@
 package com.crmunibague.crmunibague.workshift;
 
-import com.crmunibague.crmunibague.humanresource.HumanResource;
-
 import java.io.Serializable;
 import javax.persistence.*;
 import java.util.List;
@@ -24,10 +22,6 @@ public class WorkShift implements Serializable {
 	@Column(name = "description", length = 255)
 	private String description;
 
-	//bi-directional many-to-one association to HumanResource
-	@OneToMany(mappedBy="workShift")
-	private List<HumanResource> humanResources;
-
 	public WorkShift() {
 	}
 
@@ -45,27 +39,6 @@ public class WorkShift implements Serializable {
 
 	public void setDescription(String description) {
 		this.description = description;
-	}
-
-	public List<HumanResource> getHumanResources() {
-		return this.humanResources;
-	}
-
-	public void setHumanResources(List<HumanResource> humanResources) {
-		this.humanResources = humanResources;
-	}
-
-	public HumanResource addHumanResource(HumanResource humanResource) {
-		getHumanResources().add(humanResource);
-		humanResource.setWorkShift(this);
-		return humanResource;
-	}
-
-	public HumanResource removeHumanResource(HumanResource humanResource) {
-		getHumanResources().remove(humanResource);
-		humanResource.setWorkShift(null);
-
-		return humanResource;
 	}
 
 }

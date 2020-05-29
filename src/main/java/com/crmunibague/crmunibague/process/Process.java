@@ -1,10 +1,6 @@
 package com.crmunibague.crmunibague.process;
 
-import com.crmunibague.crmunibague.laborresource.LaborResource;
-import com.crmunibague.crmunibague.machineryprocess.MachineryProcess;
-import com.crmunibague.crmunibague.predecessor.Predecessor;
 import com.crmunibague.crmunibague.product.Product;
-import com.crmunibague.crmunibague.productionprocess.ProductionProcess;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -38,26 +34,11 @@ public class Process implements Serializable {
 	@Column(name="stock_produced")
 	private Integer stockProduced;
 
-	//bi-directional many-to-one association to LaborResource
-	@OneToMany(mappedBy="process")
-	private List<LaborResource> laborResources;
-
-	//bi-directional one-to-one association to MachineryProcess
-	@OneToOne(mappedBy="process")
-	private MachineryProcess machineryProcess;
-
-	//bi-directional many-to-one association to Predecessor
-	@OneToMany(mappedBy="process")
-	private List<Predecessor> predecessors;
-
 	//bi-directional many-to-one association to Product
 	@ManyToOne
 	@JoinColumn(name="products_code")
 	private Product product;
 
-	//bi-directional one-to-one association to ProductionProcess
-	@OneToOne(mappedBy="process")
-	private ProductionProcess productionProcess;
 
 	public Process() {
 	}
@@ -102,72 +83,12 @@ public class Process implements Serializable {
 		this.stockProduced = stockProduced;
 	}
 
-	public List<LaborResource> getLaborResources() {
-		return this.laborResources;
-	}
-
-	public void setLaborResources(List<LaborResource> laborResources) {
-		this.laborResources = laborResources;
-	}
-
-	public LaborResource addLaborResource(LaborResource laborResource) {
-		getLaborResources().add(laborResource);
-		laborResource.setProcess(this);
-
-		return laborResource;
-	}
-
-	public LaborResource removeLaborResource(LaborResource laborResource) {
-		getLaborResources().remove(laborResource);
-		laborResource.setProcess(null);
-
-		return laborResource;
-	}
-
-	public MachineryProcess getMachineryProcess() {
-		return this.machineryProcess;
-	}
-
-	public void setMachineryProcess(MachineryProcess machineryProcess) {
-		this.machineryProcess = machineryProcess;
-	}
-
-	public List<Predecessor> getPredecessors() {
-		return this.predecessors;
-	}
-
-	public void setPredecessors(List<Predecessor> predecessors) {
-		this.predecessors = predecessors;
-	}
-
-	public Predecessor addPredecessor(Predecessor predecessor) {
-		getPredecessors().add(predecessor);
-		predecessor.setProcess(this);
-
-		return predecessor;
-	}
-
-	public Predecessor removePredecessor(Predecessor predecessor) {
-		getPredecessors().remove(predecessor);
-		predecessor.setProcess(null);
-
-		return predecessor;
-	}
-
 	public Product getProduct() {
 		return this.product;
 	}
 
 	public void setProduct(Product product) {
 		this.product = product;
-	}
-
-	public ProductionProcess getProductionProcess() {
-		return this.productionProcess;
-	}
-
-	public void setProductionProcess(ProductionProcess productionProcess) {
-		this.productionProcess = productionProcess;
 	}
 
 }

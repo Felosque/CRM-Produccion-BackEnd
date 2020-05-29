@@ -3,3 +3,16 @@ spring:
     url: jdbc:postgresql://localhost:5432/demodb
     username: postgres
     password: postgres
+
+    jpa:
+      hibernate:
+        ddl-auto: update
+      database: postgresql
+      database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+  logging:
+    level:
+      org.hibernate.SQL: debug
+      org:
+        hibernate:
+          type: trace
