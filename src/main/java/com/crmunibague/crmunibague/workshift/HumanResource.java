@@ -1,4 +1,4 @@
-package com.crmunibague.crmunibague.humanresource;
+package com.crmunibague.crmunibague.workshift;
 
 import com.crmunibague.crmunibague.workshift.WorkShift;
 

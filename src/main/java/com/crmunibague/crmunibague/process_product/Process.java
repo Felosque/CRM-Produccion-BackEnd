@@ -1,11 +1,7 @@
-package com.crmunibague.crmunibague.process;
-
-import com.crmunibague.crmunibague.product.Product;
+package com.crmunibague.crmunibague.process_product;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.sql.Time;
-import java.util.List;
 
 
 /**
@@ -29,7 +25,7 @@ public class Process implements Serializable {
 	private Integer processOrder;
 
 	@Column(name="process_time")
-	private Time processTime;
+	private String processTime;
 
 	@Column(name="stock_produced")
 	private Integer stockProduced;
@@ -67,11 +63,11 @@ public class Process implements Serializable {
 		this.processOrder = processOrder;
 	}
 
-	public Time getProcessTime() {
+	public String getProcessTime() {
 		return this.processTime;
 	}
 
-	public void setProcessTime(Time processTime) {
+	public void setProcessTime(String processTime) {
 		this.processTime = processTime;
 	}
 
