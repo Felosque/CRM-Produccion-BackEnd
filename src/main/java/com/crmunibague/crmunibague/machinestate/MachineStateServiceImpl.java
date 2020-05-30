@@ -7,12 +7,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class MachineStateImpl implements MachineStateService{
+public class MachineStateServiceImpl implements MachineStateService{
 
     private MachineStateRepository machineStateRepository;
 
     @Autowired
-    public MachineStateImpl(MachineStateRepository machineStateRepository) {
+    public MachineStateServiceImpl(MachineStateRepository machineStateRepository) {
         this.machineStateRepository = machineStateRepository;
     }
 
