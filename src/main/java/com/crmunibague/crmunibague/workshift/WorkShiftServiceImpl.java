@@ -1,6 +1,6 @@
 package com.crmunibague.crmunibague.workshift;
 
-import com.crmunibague.crmunibague.serviceexeption.ResourceNotFoundException;
+import com.crmunibague.crmunibague.exceptions.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
