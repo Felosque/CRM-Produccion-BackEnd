@@ -1,4 +1,4 @@
-package com.crmunibague.crmunibague.process_product;
+package com.crmunibague.crmunibague.process;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;

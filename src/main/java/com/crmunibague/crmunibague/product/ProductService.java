@@ -1,4 +1,4 @@
-package com.crmunibague.crmunibague.process_product;
+package com.crmunibague.crmunibague.product;
 
 import org.springframework.stereotype.Service;
 

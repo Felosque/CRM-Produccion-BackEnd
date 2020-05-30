@@ -1,6 +1,5 @@
-package com.crmunibague.crmunibague.workshift;
+package com.crmunibague.crmunibague.humanresource;
 
-import com.crmunibague.crmunibague.process_product.Process;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;

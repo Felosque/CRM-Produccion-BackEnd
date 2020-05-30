@@ -1,4 +1,4 @@
-package com.crmunibague.crmunibague.workshift;
+package com.crmunibague.crmunibague.humanresource;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

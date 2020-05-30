@@ -1,4 +1,4 @@
-package com.crmunibague.crmunibague.process_product;
+package com.crmunibague.crmunibague.product;
 
 import com.crmunibague.crmunibague.serviceexeption.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;

@@ -1,10 +1,9 @@
-package com.crmunibague.crmunibague.workshift;
+package com.crmunibague.crmunibague.humanresource;
 
 import com.crmunibague.crmunibague.workshift.WorkShift;
 
 import java.io.Serializable;
 import javax.persistence.*;
-import java.util.List;
 
 
 /**

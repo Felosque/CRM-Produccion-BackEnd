@@ -1,4 +1,6 @@
-package com.crmunibague.crmunibague.process_product;
+package com.crmunibague.crmunibague.process;
+
+import com.crmunibague.crmunibague.product.Product;
 
 import java.io.Serializable;
 import javax.persistence.*;
