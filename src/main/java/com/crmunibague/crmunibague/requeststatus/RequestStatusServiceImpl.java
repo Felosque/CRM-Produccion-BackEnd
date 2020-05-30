@@ -7,12 +7,12 @@ import org.springframework.stereotype.Service;
 import java.util.List;
 
 @Service
-public class RequestStatusImpl implements RequestStatusService {
+public class RequestStatusServiceImpl implements RequestStatusService {
 
     private RequestStatusRepository requestStatusRepository;
 
     @Autowired
-    public RequestStatusImpl(RequestStatusRepository requestStatusRepository) {
+    public RequestStatusServiceImpl(RequestStatusRepository requestStatusRepository) {
         this.requestStatusRepository = requestStatusRepository;
     }
 
