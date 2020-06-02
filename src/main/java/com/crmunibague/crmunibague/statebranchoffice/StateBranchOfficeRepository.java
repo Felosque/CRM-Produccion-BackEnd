@@ -1,4 +1,4 @@
-package com.crmunibague.crmunibague.statebrachoffice;
+package com.crmunibague.crmunibague.statebranchoffice;
 
 import org.springframework.data.jpa.repository.JpaRepository;
 

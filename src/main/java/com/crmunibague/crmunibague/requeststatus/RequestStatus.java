@@ -18,6 +18,10 @@ public class RequestStatus implements Serializable {
 	public RequestStatus() {
 	}
 
+	public RequestStatus(Integer code){
+		this.code = code;
+	}
+
 	public Integer getCode() {
 		return this.code;
 	}
