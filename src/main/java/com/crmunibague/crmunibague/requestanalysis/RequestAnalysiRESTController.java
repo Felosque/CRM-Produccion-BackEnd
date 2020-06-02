@@ -32,12 +32,12 @@ public class RequestAnalysiRESTController {
     }
 
     @GetMapping(path = "/{id}")
-    public ResponseEntity<RequestAnalysi> getByID(@PathVariable("id") int id){
+    public ResponseEntity<RequestAnalysi> getByID(@PathVariable("id") RequestAnalysiPK id){
         return ResponseEntity.ok().body(this.requestAnalysiService.getById(id));
     }
 
     @DeleteMapping(path = "/{id}")
-    public Map<String, Boolean> delete(@PathVariable("id") int id){
+    public Map<String, Boolean> delete(@PathVariable("id") RequestAnalysiPK id){
         this.requestAnalysiService.delete(id);
         Map<String, Boolean> response = new HashMap<>();
         response.put("Delete", Boolean.TRUE);
@@ -45,7 +45,7 @@ public class RequestAnalysiRESTController {
     }
 
     @PutMapping(path = "/{id}")
-    public ResponseEntity<RequestAnalysi> update(@PathVariable int id, @RequestBody RequestAnalysi requestAnalysi){
+    public ResponseEntity<RequestAnalysi> update(@PathVariable RequestAnalysiPK id, @RequestBody RequestAnalysi requestAnalysi){
         return ResponseEntity.ok().body(this.requestAnalysiService.update(id, requestAnalysi));
     }
 

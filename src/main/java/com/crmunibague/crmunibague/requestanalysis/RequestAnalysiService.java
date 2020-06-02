@@ -11,10 +11,10 @@ public interface RequestAnalysiService {
 
     public List<RequestAnalysi> getAll();
 
-    public RequestAnalysi getById(int id);
+    public RequestAnalysi getById(RequestAnalysiPK id);
 
-    public RequestAnalysi update(int id, RequestAnalysi requestAnalysi);
+    public RequestAnalysi update(RequestAnalysiPK id, RequestAnalysi requestAnalysi);
 
-    public void delete(int id);
+    public void delete(RequestAnalysiPK id);
 
 }
