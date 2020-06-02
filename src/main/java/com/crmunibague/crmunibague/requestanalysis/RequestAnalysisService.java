@@ -12,9 +12,6 @@ public interface RequestAnalysisService {
 
     public List<RequestAnalysis> getAll();
 
-    public RequestAnalysis getById(int id);
+    //public List<RequestAnalysis> getByRequestAnalysisCode(int code);
 
-    public RequestAnalysis update(int id, RequestAnalysis requestAnalysis);
-
-    public void delete(int id);
 }

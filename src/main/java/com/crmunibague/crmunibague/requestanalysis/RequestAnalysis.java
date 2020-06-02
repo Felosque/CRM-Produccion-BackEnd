@@ -11,30 +11,22 @@ import java.util.List;
 public class RequestAnalysis implements Serializable {
 	private static final long serialVersionUID = 1L;
 
-	@Id
-	private Integer code;
-
-	//bi-directional many-to-one association to RequestStatus
-	@ManyToOne(optional = false)
-	@JoinColumn(name="request_status")
-	private RequestStatus requestStatus;
+	@EmbeddedId
+	private RequestAnalysisPK requestAnalysisPK;
 
 	public RequestAnalysis() {
 	}
 
-	public Integer getCode() {
-		return code;
+	public RequestAnalysis(RequestAnalysisPK requestAnalysisPK)
+	{
+		this.requestAnalysisPK = requestAnalysisPK;
 	}
 
-	public void setCode(Integer code) {
-		this.code = code;
+	public RequestAnalysisPK getRequestAnalysisPK() {
+		return requestAnalysisPK;
 	}
 
-	public RequestStatus getRequestStatus() {
-		return requestStatus;
-	}
-
-	public void setRequestStatus(RequestStatus requestStatus) {
-		this.requestStatus = requestStatus;
+	public void setRequestAnalysisPK(RequestAnalysisPK requestAnalysisPK) {
+		this.requestAnalysisPK = requestAnalysisPK;
 	}
 }
