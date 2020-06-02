@@ -6,6 +6,6 @@ import java.util.List;
 
 public interface RequestAnalysisRepository extends JpaRepository<RequestAnalysis, RequestAnalysisPK> {
 
-    //List<RequestAnalysis> findByRequestAnalysisCode(Integer code);
+    List<RequestAnalysis> findByRequestAnalysisPKCode(Integer code);
 
 }

@@ -28,10 +28,8 @@ public class RequestAnalysisImpl implements RequestAnalysisService{
         return requestAnalysisRepository.findAll();
     }
 
-    /*
     @Override
     public List<RequestAnalysis> getByRequestAnalysisCode(int code) {
-        return requestAnalysisRepository.findByRequestAnalysisCode(code);
+        return requestAnalysisRepository.findByRequestAnalysisPKCode(code);
     }
-    */
 }

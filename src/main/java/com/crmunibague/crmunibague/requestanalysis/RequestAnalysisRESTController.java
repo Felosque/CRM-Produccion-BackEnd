@@ -28,12 +28,9 @@ public class RequestAnalysisRESTController {
         return ResponseEntity.ok().body(this.requestAnalysisService.getAll());
     }
 
-/*
     @GetMapping(path = "/{id}")
     public  ResponseEntity<List<RequestAnalysis>> getByRequestAnalysisCode(@PathVariable("id") int id){
         return ResponseEntity.ok().body(this.requestAnalysisService.getByRequestAnalysisCode(id));
     }
-
- */
 
 }

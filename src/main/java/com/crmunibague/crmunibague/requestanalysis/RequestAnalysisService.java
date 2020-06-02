@@ -12,6 +12,6 @@ public interface RequestAnalysisService {
 
     public List<RequestAnalysis> getAll();
 
-    //public List<RequestAnalysis> getByRequestAnalysisCode(int code);
+    public List<RequestAnalysis> getByRequestAnalysisCode(int code);
 
 }
