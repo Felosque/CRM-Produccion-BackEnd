@@ -12,7 +12,6 @@ import java.util.List;
 public class BranchOfficeImpl implements BranchOfficeService{
 
     private BranchOfficeRepository branchOfficeRepository;
-
     private StateBranchOfficeService stateBranchOfficeService;
 
     @Autowired
