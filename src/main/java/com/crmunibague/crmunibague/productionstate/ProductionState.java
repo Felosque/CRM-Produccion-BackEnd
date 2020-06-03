@@ -20,6 +20,10 @@ public class ProductionState implements Serializable {
 
     }
 
+    public ProductionState(Integer code) {
+        this.code = code;
+    }
+
     public Integer getCode() {
         return code;
     }
