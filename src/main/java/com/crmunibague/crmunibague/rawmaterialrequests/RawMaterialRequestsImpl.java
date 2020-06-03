@@ -4,23 +4,22 @@ import com.crmunibague.crmunibague.exceptions.ResourceNotFoundException;
 import com.crmunibague.crmunibague.production.Production;
 import com.crmunibague.crmunibague.production.ProductionService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
 
 import java.util.List;
 
+@Service
 public class RawMaterialRequestsImpl implements RawMaterialRequestsService{
 
     private RawMaterialRequestsRepository rawMaterialRequestsRepository;
-    private ProductionService production;
 
     @Autowired
-    public RawMaterialRequestsImpl(RawMaterialRequestsRepository rawMaterialRequestsRepository, ProductionService production) {
+    public RawMaterialRequestsImpl(RawMaterialRequestsRepository rawMaterialRequestsRepository) {
         this.rawMaterialRequestsRepository = rawMaterialRequestsRepository;
-        this.production = production;
     }
 
     @Override
     public RawMaterialRequests save(RawMaterialRequests rawMaterialRequests) {
-        Production production = this.production.getById(rawMaterialRequests.getNumberBatch().getCode());
         return this.rawMaterialRequestsRepository.save(rawMaterialRequests);
     }
 

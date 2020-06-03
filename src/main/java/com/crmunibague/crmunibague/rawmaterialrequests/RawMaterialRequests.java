@@ -28,6 +28,10 @@ public class RawMaterialRequests implements Serializable{
     public RawMaterialRequests() {
     }
 
+    public RawMaterialRequests(Integer code) {
+        this.code = code;
+    }
+
     public Integer getCode() {
         return code;
     }
