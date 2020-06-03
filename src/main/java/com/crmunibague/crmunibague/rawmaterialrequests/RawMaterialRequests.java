@@ -19,7 +19,7 @@ public class RawMaterialRequests implements Serializable{
     private String requestDate;
 
     @Column(name = "number_order")
-    private String numberOrder;
+    private Integer numberOrder;
 
     @ManyToOne(optional = false)
     @JoinColumn(name="number_batch")
@@ -56,11 +56,11 @@ public class RawMaterialRequests implements Serializable{
         this.requestDate = requestDate;
     }
 
-    public String getNumberOrder() {
+    public Integer getNumberOrder() {
         return numberOrder;
     }
 
-    public void setNumberOrder(String numberOrder) {
+    public void setNumberOrder(Integer numberOrder) {
         this.numberOrder = numberOrder;
     }
 

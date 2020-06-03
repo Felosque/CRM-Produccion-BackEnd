@@ -11,4 +11,10 @@ public interface ProductionDetailsService {
 
     public List<ProductionDetails> getAll();
 
+    public ProductionDetails update(ProductionDetails productionDetails);
+
+    public void delete(ProductionDetails productionDetails);
+
+
+   // public ProductionDetails getById(ProductionDetailsPk id);
 }

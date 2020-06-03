@@ -13,9 +13,11 @@ public class ProductionDetailsPk implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Column(name="products_code")
+    @JoinColumn(name="products_code")
     private Integer productsCode;
 
     @Column(name="product_batch")
+    @JoinColumn(name="products_batch")
     private Integer productBatch;
 
     public ProductionDetailsPk() {
