@@ -30,6 +30,9 @@ public class Production implements Serializable {
 
     }
 
+    public Production(Integer code){
+        this.code = code;
+    }
 
     public Integer getCode() {
         return code;
