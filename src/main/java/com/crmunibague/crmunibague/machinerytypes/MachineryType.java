@@ -24,6 +24,10 @@ public class MachineryType implements Serializable {
 	public MachineryType() {
 	}
 
+	public MachineryType(Integer code) {
+		this.code = code;
+	}
+
 	public Integer getCode() {
 		return this.code;
 	}

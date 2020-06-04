@@ -43,6 +43,7 @@ public class BranchOfficeRESTController {
         return response;
     }
 
+    @PutMapping(path = "/{id}")
     public ResponseEntity<BranchOffice> update(@PathVariable("id") int id, @RequestBody BranchOffice entity){
         return ResponseEntity.ok().body(this.branchOfficeService.update(id,entity));
     }

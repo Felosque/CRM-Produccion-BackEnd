@@ -37,8 +37,11 @@ public class Process implements Serializable {
 	@JoinColumn(name="products_code")
 	private Product product;
 
-
 	public Process() {
+	}
+
+	public Process(Integer code) {
+		this.code = code;
 	}
 
 	public Integer getCode() {
