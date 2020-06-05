@@ -10,7 +10,6 @@ import java.util.List;
 @Service
 public class RequestAnalysisImpl implements RequestAnalysisService{
 
-    private RequestStatusService requestStatusService;
     private RequestAnalysisRepository requestAnalysisRepository;
 
     @Autowired
@@ -29,7 +28,8 @@ public class RequestAnalysisImpl implements RequestAnalysisService{
     }
 
     @Override
-    public List<RequestAnalysis> getByRequestAnalysisCode(int code) {
+    public List<RequestAnalysis> getByCode(Integer code) {
         return requestAnalysisRepository.findByRequestAnalysisPKCode(code);
     }
+
 }

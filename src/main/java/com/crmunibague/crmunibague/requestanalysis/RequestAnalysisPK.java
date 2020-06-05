@@ -1,32 +1,30 @@
 package com.crmunibague.crmunibague.requestanalysis;
 
 import com.crmunibague.crmunibague.requeststatus.RequestStatus;
-import com.crmunibague.crmunibague.requeststatus.RequestStatusService;
-import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.Serializable;
 import javax.persistence.*;
 
-/**
- * The primary key class for the request_analysis database table.
- * 
- */
 @Embeddable
 public class RequestAnalysisPK implements Serializable {
-	//default serial version id, required for serializable classes.
+
 	private static final long serialVersionUID = 1L;
 
-	@Column(name = "code")
+	@Column(name="code")
 	private Integer code;
 
-	@Column(name="request_status", insertable=false, updatable=false)
-	private Integer requestStatus;
+	@ManyToOne(optional = false)
+	@JoinColumn(name="request_status", referencedColumnName="code", insertable=false, updatable=false)
+	private RequestStatus requestStatus;
 
 	public RequestAnalysisPK() {
 	}
 
-	public RequestAnalysisPK(Integer code, Integer requestStatus) {
-		this.code = code;
+	public RequestStatus getRequestStatus() {
+		return requestStatus;
+	}
+
+	public void setRequestStatus(RequestStatus requestStatus) {
 		this.requestStatus = requestStatus;
 	}
 
@@ -38,13 +36,6 @@ public class RequestAnalysisPK implements Serializable {
 		this.code = code;
 	}
 
-	public Integer getRequestStatus() {
-		return requestStatus;
-	}
-
-	public void setRequestStatus(Integer requestStatus) {
-		this.requestStatus = requestStatus;
-	}
 
 	public boolean equals(Object other) {
 		if (this == other) {

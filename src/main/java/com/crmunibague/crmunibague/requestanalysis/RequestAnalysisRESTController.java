@@ -1,5 +1,6 @@
 package com.crmunibague.crmunibague.requestanalysis;
 
+import com.crmunibague.crmunibague.rawmaterialrequests.RawMaterialRequests;
 import com.crmunibague.crmunibague.requeststatus.RequestStatus;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -30,8 +31,8 @@ public class RequestAnalysisRESTController {
     }
 
     @GetMapping(path = "/{id}")
-    public  ResponseEntity<List<RequestAnalysis>> getByRequestAnalysisCode(@PathVariable("id") int id){
-        return ResponseEntity.ok().body(this.requestAnalysisService.getByRequestAnalysisCode(id));
+    public ResponseEntity<List<RequestAnalysis>> getById(@PathVariable("id") int id){
+        return ResponseEntity.ok().body(this.requestAnalysisService.getByCode(id));
     }
 
 }
