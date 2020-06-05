@@ -24,6 +24,7 @@ public class MachineryProcessServiceImpl implements MachineryProcessService{
 
     @Override
     public MachineryProcess save(MachineryProcess machineryProcess) {
+        System.out.println("---------------"+machineryProcess.getProcess().getCode()+"---------------");
         MachineryType machineryType = machineryTypeService.getById(machineryProcess.getMachineryTypeBean().getCode());
         machineryProcess.setMachineryTypeBean(machineryType);
         return machineryProcessRepository.save(machineryProcess);

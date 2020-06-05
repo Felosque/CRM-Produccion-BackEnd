@@ -8,7 +8,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@RequestMapping("scm-unibague/predecessor")
+@CrossOrigin(origins = "http://localhost:4200",maxAge = 3600)
+@RequestMapping("scm-unibague/Predecessor")
 @RestController
 public class PredecessorRESTController {
 

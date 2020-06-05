@@ -10,12 +10,18 @@ public class RequestStatus implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
+	@Column(nullable=false)
 	@GeneratedValue(strategy=GenerationType.IDENTITY)
+
 	private Integer code;
 
 	private String description;
 
 	public RequestStatus() {
+	}
+
+	public RequestStatus(Integer code){
+		this.code = code;
 	}
 
 	public Integer getCode() {

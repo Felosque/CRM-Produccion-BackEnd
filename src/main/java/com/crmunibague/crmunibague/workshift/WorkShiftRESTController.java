@@ -6,7 +6,8 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RequestMapping("scm-unibague/workshift")
+@CrossOrigin(origins = "http://localhost:4200",maxAge = 3600)
+@RequestMapping("scm-unibague/WorkShift")
 @RestController
 public class WorkShiftRESTController {
 

@@ -1,23 +1,18 @@
 package com.crmunibague.crmunibague.branchoffice;
 
-import com.crmunibague.crmunibague.statebrachoffice.StateBranchOffice;
+import com.crmunibague.crmunibague.statebranchoffice.StateBranchOffice;
 
 import java.io.Serializable;
 import javax.persistence.*;
 
 
-/**
- * The persistent class for the branch_office database table.
- * 
- */
 @Entity
 @Table(name="branch_office")
-@NamedQuery(name="BranchOffice.findAll", query="SELECT b FROM BranchOffice b")
 public class BranchOffice implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer code;
 
 	private String address;
@@ -26,15 +21,15 @@ public class BranchOffice implements Serializable {
 	private String enterpriseNit;
 
 	//bi-directional many-to-one association to StateBrachOffice
-	@ManyToOne
+	@ManyToOne(optional = false)
 	@JoinColumn(name="state")
-	private StateBranchOffice stateBrachOffice;
+	private StateBranchOffice stateBranchOffice;
 
 	public BranchOffice() {
 	}
 
 	public Integer getCode() {
-		return this.code;
+		return code;
 	}
 
 	public void setCode(Integer code) {
@@ -42,7 +37,7 @@ public class BranchOffice implements Serializable {
 	}
 
 	public String getAddress() {
-		return this.address;
+		return address;
 	}
 
 	public void setAddress(String address) {
@@ -50,19 +45,18 @@ public class BranchOffice implements Serializable {
 	}
 
 	public String getEnterpriseNit() {
-		return this.enterpriseNit;
+		return enterpriseNit;
 	}
 
 	public void setEnterpriseNit(String enterpriseNit) {
 		this.enterpriseNit = enterpriseNit;
 	}
 
-	public StateBranchOffice getStateBrachOffice() {
-		return this.stateBrachOffice;
+	public StateBranchOffice getStateBranchOffice() {
+		return stateBranchOffice;
 	}
 
-	public void setStateBrachOffice(StateBranchOffice stateBrachOffice) {
-		this.stateBrachOffice = stateBrachOffice;
+	public void setStateBranchOffice(StateBranchOffice state) {
+		this.stateBranchOffice = state;
 	}
-
 }

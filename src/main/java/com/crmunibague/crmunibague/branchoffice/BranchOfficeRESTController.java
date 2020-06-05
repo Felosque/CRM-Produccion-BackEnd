@@ -8,21 +8,21 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-@RequestMapping("scm-unibague/branchoffice")
+@CrossOrigin(origins = "http://localhost:4200",maxAge = 3600)
+@RequestMapping("scm-unibague/BranchOffice")
 @RestController
 public class BranchOfficeRESTController {
 
     private BranchOfficeService branchOfficeService;
 
     @Autowired
-    public BranchOfficeRESTController(BranchOfficeService branchOfficeService)
-    {
+    public BranchOfficeRESTController(BranchOfficeService branchOfficeService) {
         this.branchOfficeService = branchOfficeService;
     }
 
     @PostMapping
-    public ResponseEntity<BranchOffice> save(@RequestBody BranchOffice branchOffice){
-        return ResponseEntity.ok().body(this.branchOfficeService.save(branchOffice));
+    public ResponseEntity<BranchOffice> save(@RequestBody BranchOffice entity){
+        return ResponseEntity.ok().body(this.branchOfficeService.save(entity));
     }
 
     @GetMapping
@@ -31,7 +31,7 @@ public class BranchOfficeRESTController {
     }
 
     @GetMapping(path = "/{id}")
-    public ResponseEntity<BranchOffice> getByID(@PathVariable("id") int id){
+    public ResponseEntity<BranchOffice> getById(@PathVariable("id") int id){
         return ResponseEntity.ok().body(this.branchOfficeService.getById(id));
     }
 
@@ -39,14 +39,12 @@ public class BranchOfficeRESTController {
     public Map<String, Boolean> delete(@PathVariable("id") int id){
         this.branchOfficeService.delete(id);
         Map<String, Boolean> response = new HashMap<>();
-        response.put("Delete", Boolean.TRUE);
+        response.put("Deleted", Boolean.TRUE);
         return response;
     }
 
     @PutMapping(path = "/{id}")
-    public ResponseEntity<BranchOffice> update(@PathVariable int id, @RequestBody BranchOffice branchOffice){
-        return ResponseEntity.ok().body(this.branchOfficeService.update(id, branchOffice));
+    public ResponseEntity<BranchOffice> update(@PathVariable("id") int id, @RequestBody BranchOffice entity){
+        return ResponseEntity.ok().body(this.branchOfficeService.update(id,entity));
     }
-
-
 }

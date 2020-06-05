@@ -1,4 +1,4 @@
-package com.crmunibague.crmunibague.statebrachoffice;
+package com.crmunibague.crmunibague.statebranchoffice;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -8,6 +8,7 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+@CrossOrigin(origins = "http://localhost:4200",maxAge = 3600)
 @RequestMapping("scm-unibague/StateBranchOffice")
 @RestController
 public class StateBranchRESTController {

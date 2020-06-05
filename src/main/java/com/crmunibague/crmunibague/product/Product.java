@@ -3,14 +3,9 @@ package com.crmunibague.crmunibague.product;
 import java.io.Serializable;
 import javax.persistence.*;
 
-
-/**
- * The persistent class for the products database table.
- * 
- */
 @Entity
 @Table(name="products")
-@NamedQuery(name="Product.findAll", query="SELECT p FROM Product p")
+
 public class Product implements Serializable {
 	private static final long serialVersionUID = 1L;
 
@@ -40,3 +35,4 @@ public class Product implements Serializable {
 	}
 
 }
+
