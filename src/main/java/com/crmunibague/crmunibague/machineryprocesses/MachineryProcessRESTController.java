@@ -10,7 +10,7 @@ import java.util.List;
 import java.util.Map;
 
 @CrossOrigin(origins = "http://localhost:4200",maxAge = 3600)
-@RequestMapping("scm-unibague/machineryprocess")
+@RequestMapping("scm-unibague/MachineryProcess")
 @RestController
 public class MachineryProcessRESTController {
 
