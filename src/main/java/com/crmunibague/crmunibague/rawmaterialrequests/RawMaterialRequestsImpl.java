@@ -1,8 +1,6 @@
 package com.crmunibague.crmunibague.rawmaterialrequests;
 
 import com.crmunibague.crmunibague.exceptions.ResourceNotFoundException;
-import com.crmunibague.crmunibague.production.Production;
-import com.crmunibague.crmunibague.production.ProductionService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
