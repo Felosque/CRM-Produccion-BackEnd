@@ -1,8 +1,8 @@
 spring:
   datasource:
-    url: jdbc:postgresql://localhost:5432/test
-    username: postgres
-    password: admin
+    url: jdbc:postgresql://179.0.10.25:5432/supplychain
+    username: scms
+    password: $upplyChæ!n
 
     jpa:
       hibernate:
