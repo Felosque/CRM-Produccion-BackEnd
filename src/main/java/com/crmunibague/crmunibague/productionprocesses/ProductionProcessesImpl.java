@@ -28,7 +28,7 @@ public class ProductionProcessesImpl implements ProductionProcessesService {
 
     @Override
     public ProductionProcesses getById(int id) {
-        return this.productionProcessesRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("No sirvio."));
+        return this.productionProcessesRepository.findById(id).orElseThrow(() -> new ResourceNotFoundException("The Production Process by id:" + id + " | NOT FOUND"));
     }
 
     @Override
