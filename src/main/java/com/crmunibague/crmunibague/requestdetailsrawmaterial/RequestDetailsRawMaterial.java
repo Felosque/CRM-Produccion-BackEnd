@@ -12,11 +12,11 @@ public class RequestDetailsRawMaterial implements Serializable {
     private static final long serialVersionUID = 1L;
 
     @Id
-    @Column(name = "code", insertable = false, updatable = false)
+    @GeneratedValue(strategy=GenerationType.IDENTITY)
     private Integer code;
 
     @ManyToOne(optional = false)
-    @JoinColumn(name="code", referencedColumnName = "code", insertable = false, updatable = false)
+    @JoinColumn(name="raw_material_requestscode")
     private RawMaterialRequests rawMaterialRequests;
 
     @Column(name = "request_amount")
@@ -24,6 +24,9 @@ public class RequestDetailsRawMaterial implements Serializable {
 
     @Column(name = "delivery_deadline_date")
     private String deliveryDeadlineDate;
+
+    @Column(name = "description")
+    public String description;
 
     public RequestDetailsRawMaterial() {
     }
@@ -34,6 +37,10 @@ public class RequestDetailsRawMaterial implements Serializable {
 
     public Integer getCode() {
         return code;
+    }
+
+    public void setCode(Integer code) {
+        this.code = code;
     }
 
     public RawMaterialRequests getRawMaterialRequests() {
@@ -58,5 +65,13 @@ public class RequestDetailsRawMaterial implements Serializable {
 
     public void setDeliveryDeadlineDate(String deliveryDeadlineDate) {
         this.deliveryDeadlineDate = deliveryDeadlineDate;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 }

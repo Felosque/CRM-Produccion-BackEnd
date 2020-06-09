@@ -29,6 +29,12 @@ public class RequestDetailsRawMaterialRESTController {
     public ResponseEntity<RequestDetailsRawMaterial> getById(@PathVariable("id") int id){
         return ResponseEntity.ok().body(this.requestDetailsRawMaterialService.getById(id));
     }
+
+    @GetMapping(path = "/RequestCode/{id}")
+    public ResponseEntity<List<RequestDetailsRawMaterial>> getByRawMaterialRequestCode(@PathVariable("id") int id){
+        return ResponseEntity.ok().body(this.requestDetailsRawMaterialService.getAllByRawMaterialRequestCode(id));
+    }
+
     @PostMapping
     public ResponseEntity<RequestDetailsRawMaterial> save(@RequestBody RequestDetailsRawMaterial entity){
         return ResponseEntity.ok().body(this.requestDetailsRawMaterialService.save(entity));

@@ -29,6 +29,12 @@ public class RawMaterialDeliveryStatesRESTController {
     public ResponseEntity<RawMaterialDeliveryStates> getById(@PathVariable("id") int id){
         return ResponseEntity.ok().body(this.rawMaterialDeliveryStatesService.getById(id));
     }
+
+    @GetMapping(path = "/RequestDetail/{id}")
+    public ResponseEntity<List<RawMaterialDeliveryStates>> getByRequestDetailRawMaterialCode(@PathVariable("id") int id){
+        return ResponseEntity.ok().body(this.rawMaterialDeliveryStatesService.getByRequestDetailRawMaterialCode(id));
+    }
+
     @PostMapping
     public ResponseEntity<RawMaterialDeliveryStates> save(@RequestBody RawMaterialDeliveryStates entity){
         return ResponseEntity.ok().body(this.rawMaterialDeliveryStatesService.save(entity));

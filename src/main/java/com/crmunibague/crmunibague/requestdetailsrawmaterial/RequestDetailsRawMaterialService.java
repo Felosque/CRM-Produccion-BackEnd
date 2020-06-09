@@ -17,4 +17,6 @@ public interface RequestDetailsRawMaterialService {
 
     public void delete(int id);
 
+    public List<RequestDetailsRawMaterial> getAllByRawMaterialRequestCode(int id);
+
 }

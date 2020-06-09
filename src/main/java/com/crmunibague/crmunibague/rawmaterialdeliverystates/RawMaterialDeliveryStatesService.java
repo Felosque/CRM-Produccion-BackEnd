@@ -15,5 +15,7 @@ public interface RawMaterialDeliveryStatesService {
 
     public RawMaterialDeliveryStates update(int id, RawMaterialDeliveryStates rawMaterialDeliveryStates);
 
+    public List<RawMaterialDeliveryStates> getByRequestDetailRawMaterialCode(int id);
+
     public void delete(int id);
 }

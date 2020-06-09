@@ -6,15 +6,15 @@ import javax.persistence.*;
 import java.io.Serializable;
 
 @Entity
-@Table(name="request_details_raw_material")
+@Table(name="raw_material_delivery_states")
 public class RawMaterialDeliveryStates implements Serializable {
 
     @Id
-    @GeneratedValue(strategy= GenerationType.AUTO)
+    @GeneratedValue(strategy= GenerationType.IDENTITY)
     private Integer code;
 
-    @ManyToOne
-    @JoinColumn(name="fk_request_detail_code")
+    @ManyToOne(optional = false)
+    @JoinColumn(name="request_details_raw_materialcode")
     private RequestDetailsRawMaterial request;
 
     @Column(name = "date_delivery")

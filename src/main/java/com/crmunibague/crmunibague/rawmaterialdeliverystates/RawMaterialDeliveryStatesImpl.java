@@ -1,6 +1,8 @@
 package com.crmunibague.crmunibague.rawmaterialdeliverystates;
 
 import com.crmunibague.crmunibague.exceptions.ResourceNotFoundException;
+import com.crmunibague.crmunibague.requestdetailsrawmaterial.RequestDetailsRawMaterial;
+import com.crmunibague.crmunibague.requestdetailsrawmaterial.RequestDetailsRawMaterialService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -10,11 +12,15 @@ import java.util.List;
 public class RawMaterialDeliveryStatesImpl implements RawMaterialDeliveryStatesService{
 
     private RawMaterialDeliveryStatesRepository rawMaterialDeliveryStatesRepository;
+    private RequestDetailsRawMaterialService requestDetailsRawMaterialService;
+
+    public RawMaterialDeliveryStatesImpl(RawMaterialDeliveryStatesRepository rawMaterialDeliveryStatesRepository, RequestDetailsRawMaterialService requestDetailsRawMaterialService) {
+        this.rawMaterialDeliveryStatesRepository = rawMaterialDeliveryStatesRepository;
+        this.requestDetailsRawMaterialService = requestDetailsRawMaterialService;
+    }
 
     @Autowired
-    public RawMaterialDeliveryStatesImpl(RawMaterialDeliveryStatesRepository rawMaterialDeliveryStatesRepository) {
-        this.rawMaterialDeliveryStatesRepository = rawMaterialDeliveryStatesRepository;
-    }
+
 
     @Override
     public List<RawMaterialDeliveryStates> getAll() {
@@ -38,6 +44,12 @@ public class RawMaterialDeliveryStatesImpl implements RawMaterialDeliveryStatesS
         entity.setDeliveryStock(rawMaterialDeliveryStates.getDeliveryStock());
 
         return this.save(entity);
+    }
+
+    @Override
+    public List<RawMaterialDeliveryStates> getByRequestDetailRawMaterialCode(int id) {
+        RequestDetailsRawMaterial entity = this.requestDetailsRawMaterialService.getById(id);
+        return this.rawMaterialDeliveryStatesRepository.findByRequest(entity);
     }
 
     @Override
