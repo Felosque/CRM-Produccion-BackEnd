@@ -36,7 +36,6 @@ public class RequestAnalysisPK implements Serializable {
 		this.code = code;
 	}
 
-
 	public boolean equals(Object other) {
 		if (this == other) {
 			return true;

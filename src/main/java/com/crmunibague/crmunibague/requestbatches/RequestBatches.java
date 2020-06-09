@@ -2,6 +2,7 @@ package com.crmunibague.crmunibague.requestbatches;
 
 import com.crmunibague.crmunibague.production.Production;
 import com.crmunibague.crmunibague.requestanalysis.RequestAnalysis;
+import com.crmunibague.crmunibague.requeststatus.RequestStatus;
 
 import java.io.Serializable;
 import javax.persistence.*;
@@ -19,17 +20,13 @@ public class RequestBatches implements Serializable {
 	private String requestDate;
 
 	//bi-directional many-to-one association to Production
-	@ManyToOne
+	@ManyToOne(optional = false)
 	@JoinColumn(name="production_batch")
 	private Production production;
 
-	//bi-directional many-to-one association to RequestAnalysi
-	@ManyToOne
-	@JoinColumns({
-		@JoinColumn(name="request_analysis_code", referencedColumnName="code"),
-		@JoinColumn(name="request_analysis_status", referencedColumnName="request_status")
-		})
-	private RequestAnalysis requestAnalysis;
+	@ManyToOne(optional = false)
+	@JoinColumn(name="request_statuscode")
+	private RequestStatus state;
 
 	public RequestBatches() {
 	}
@@ -58,11 +55,11 @@ public class RequestBatches implements Serializable {
 		this.production = production;
 	}
 
-	public RequestAnalysis getRequestAnalysis() {
-		return requestAnalysis;
+	public RequestStatus getState() {
+		return state;
 	}
 
-	public void setRequestAnalysis(RequestAnalysis requestAnalysis) {
-		this.requestAnalysis = requestAnalysis;
+	public void setState(RequestStatus state) {
+		this.state = state;
 	}
 }

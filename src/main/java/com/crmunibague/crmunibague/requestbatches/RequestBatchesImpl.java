@@ -3,6 +3,8 @@ package com.crmunibague.crmunibague.requestbatches;
 import com.crmunibague.crmunibague.exceptions.ResourceNotFoundException;
 import com.crmunibague.crmunibague.production.Production;
 import com.crmunibague.crmunibague.production.ProductionService;
+import com.crmunibague.crmunibague.requeststatus.RequestStatus;
+import com.crmunibague.crmunibague.requeststatus.RequestStatusService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -13,11 +15,13 @@ public class RequestBatchesImpl implements RequestBatchesService{
 
     private RequestBatchesRepository requestBatchesRepository;
     private ProductionService productionService;
+    private RequestStatusService requestStatusService;
 
     @Autowired
-    public RequestBatchesImpl(RequestBatchesRepository requestBatchesRepository, ProductionService productionService) {
+    public RequestBatchesImpl(RequestBatchesRepository requestBatchesRepository, ProductionService productionService, RequestStatusService requestStatusService) {
         this.requestBatchesRepository = requestBatchesRepository;
         this.productionService = productionService;
+        this.requestStatusService = requestStatusService;
     }
 
     @Override
@@ -39,10 +43,12 @@ public class RequestBatchesImpl implements RequestBatchesService{
     @Override
     public RequestBatches update(int code, RequestBatches requestBatches) {
         RequestBatches entity = this.getById(code);
+        RequestStatus entityStatus = this.requestStatusService.getById(requestBatches.getState().getCode());
+        Production entityProduction = this.productionService.getById(requestBatches.getProduction().getCode());
         entity.setCode(requestBatches.getCode());
-        entity.setProduction(requestBatches.getProduction());
         entity.setRequestDate(requestBatches.getRequestDate());
-        entity.setRequestAnalysis(requestBatches.getRequestAnalysis());
+        entity.setProduction(entityProduction);
+        entity.setState(entityStatus);
         return this.save(entity);
     }
 
