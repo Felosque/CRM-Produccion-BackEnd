@@ -1,6 +1,6 @@
 spring:
   datasource:
-    url: jdbc:postgresql://179.0.10.25:5432/supplychain
+    url: jdbc:postgresql://179.0.10.25:5432/supplychaintest
     username: scms
     password: $upplyChæ!n
 
