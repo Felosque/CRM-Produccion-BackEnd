@@ -34,7 +34,6 @@ public class ProductionImpl implements ProductionService {
     @Override
     public Production update(int id, Production production) {
         Production entity = this.getById(id);
-        entity.setCode(production.getCode());
         entity.setCreateDate(production.getCreateDate());
         entity.setExpirationDate(production.getExpirationDate());
         entity.setStartOrderDate(production.getStartOrderDate());
