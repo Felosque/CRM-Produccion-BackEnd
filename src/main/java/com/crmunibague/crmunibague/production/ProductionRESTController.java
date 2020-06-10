@@ -6,10 +6,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.text.SimpleDateFormat;
-import java.util.Date;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 @CrossOrigin( origins = "http://localhost:4200", maxAge = 3600)
 @RequestMapping("scm-unibague/Production")
@@ -52,23 +49,29 @@ public class ProductionRESTController {
     }
 
     @GetMapping(path = "/TiempoRestante")
-    public Map<Integer,String> getTiempoRestante(){
+    public List<Map<String,String>> getTiempoRestante(){
         List<Production> productions = this.productionService.getAll();
-        Map<Integer,String> resultado = new HashMap<>();
+        List<Map<String,String>> listaResultado = new ArrayList<>();
+        Map<String,String> resultado = new HashMap<>();
 
         for (int i = 0; i < productions.size(); i++)
         {
+            resultado = new HashMap<>();
             Production actual = productions.get(i);
             try {
-                resultado.put(actual.getCode() , darTiempoDiferencia(new SimpleDateFormat("dd/MM/yyyy").parse(actual.getExpirationDate())));
+                resultado.put("code",actual.getCode()+"");
+                resultado.put("data", darTiempoDiferencia(new SimpleDateFormat("dd/MM/yyyy").parse(actual.getExpirationDate())));
+                listaResultado.add(resultado);
             }
             catch (Exception e)
             {
-                resultado.put(actual.getCode() , "LA FECHA DE LA SOLICITUD ES INCORRECTA.");
+                resultado.put("code",actual.getCode()+"");
+                resultado.put("data","LA FECHA DE LA SOLICITUD ES INCORRECTA.");
+                listaResultado.add(resultado);
             }
-        }
 
-        return resultado;
+        }
+        return listaResultado;
     }
 
     public String darTiempoDiferencia(Date pFecha){
