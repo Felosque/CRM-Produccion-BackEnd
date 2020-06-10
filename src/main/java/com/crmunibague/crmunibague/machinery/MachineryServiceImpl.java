@@ -18,13 +18,9 @@ import java.util.List;
 public class MachineryServiceImpl implements MachineryService {
 
     private MachineryRepository machineryRepository;
-
     private MachineStateService machineStateService;
-
     private BranchOfficeService branchOfficeService;
-
     private HumanResourceService humanResourceService;
-
     private MachineryTypeService machineryTypeService;
 
     @Autowired
@@ -72,6 +68,12 @@ public class MachineryServiceImpl implements MachineryService {
         machineryToUpdate.setMachineryTypeBean(machineryType);
 
         return save(machineryToUpdate);
+    }
+
+    @Override
+    public List<Machinery> getByState(int id) {
+        MachineState entity = this.machineStateService.getById(id);
+        return this.machineryRepository.findByMachineStateBean(entity);
     }
 
     @Override

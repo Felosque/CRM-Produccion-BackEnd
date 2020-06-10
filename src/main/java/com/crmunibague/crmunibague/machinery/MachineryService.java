@@ -15,6 +15,8 @@ public interface MachineryService {
 
     public Machinery update(int id, Machinery machinery);
 
+    public List<Machinery> getByState(int id);
+
     public void delete(int id);
 
 }

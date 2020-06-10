@@ -12,12 +12,11 @@ import javax.persistence.*;
  */
 @Entity
 @Table(name="human_resources")
-@NamedQuery(name="HumanResource.findAll", query="SELECT h FROM HumanResource h")
 public class HumanResource implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer code;
 
 	private String dni;
@@ -30,6 +29,10 @@ public class HumanResource implements Serializable {
 	private WorkShift workShift;
 
 	public HumanResource() {
+	}
+
+	public HumanResource(Integer code){
+		this.code = code;
 	}
 
 	public Integer getCode() {

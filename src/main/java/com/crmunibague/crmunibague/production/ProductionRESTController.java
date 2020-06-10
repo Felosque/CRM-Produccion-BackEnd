@@ -66,7 +66,7 @@ public class ProductionRESTController {
             catch (Exception e)
             {
                 resultado.put("code",actual.getCode()+"");
-                resultado.put("data","LA FECHA DE LA SOLICITUD ES INCORRECTA.");
+                resultado.put("data","LA FECHA DE ENTREGA NO SE DILIGENCIÓ CORRECTAMENTE.");
                 listaResultado.add(resultado);
             }
 
@@ -78,8 +78,6 @@ public class ProductionRESTController {
 
         String respuesta = "";
         Date fechaActual = new Date();
-        System.out.println(new SimpleDateFormat("dd/MM/yyyy").format(fechaActual) + " fecha actual.");
-        System.out.println(new SimpleDateFormat("dd/MM/yyyy").format(pFecha) + " fecha parametro.");
 
         int diferencia=(int) ((pFecha.getTime()-fechaActual.getTime())/1000);
 
@@ -101,11 +99,11 @@ public class ProductionRESTController {
         }
 
         if(diferencia < 0){
-            respuesta = "SOLICITUD VENCIDA";
+            respuesta = "FECHA DE ENTREGA EXCEDIDA.";
         }
         else
         {
-            respuesta = dias+" días, "+horas+" horas, "+minutos+" minutos restantes";
+            respuesta = dias+" días, "+horas+" horas, "+minutos+" minutos restantes.";
         }
 
         return respuesta;

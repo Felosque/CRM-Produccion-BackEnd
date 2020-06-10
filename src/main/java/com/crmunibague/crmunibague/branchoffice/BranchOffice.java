@@ -28,6 +28,11 @@ public class BranchOffice implements Serializable {
 	public BranchOffice() {
 	}
 
+	public BranchOffice(Integer code)
+	{
+		this.code = code;
+	}
+
 	public Integer getCode() {
 		return code;
 	}

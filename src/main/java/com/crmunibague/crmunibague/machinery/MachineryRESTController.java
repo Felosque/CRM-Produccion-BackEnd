@@ -36,6 +36,11 @@ public class MachineryRESTController {
         return ResponseEntity.ok().body(this.machineryService.getById(id));
     }
 
+    @GetMapping(path = "/DarMaquinasPorEstado/{id}")
+    public ResponseEntity<List<Machinery>> getByMachineState(@PathVariable("id") int id){
+        return ResponseEntity.ok().body(this.machineryService.getByState(id));
+    }
+
     @DeleteMapping(path = "/{id}")
     public Map<String, Boolean> delete(@PathVariable("id") int id){
         this.machineryService.delete(id);

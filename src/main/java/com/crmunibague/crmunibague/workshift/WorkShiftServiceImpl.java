@@ -1,6 +1,7 @@
 package com.crmunibague.crmunibague.workshift;
 
 import com.crmunibague.crmunibague.exceptions.ResourceNotFoundException;
+import org.hibernate.jdbc.Work;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -35,12 +36,15 @@ public class WorkShiftServiceImpl implements WorkShiftService{
 
     @Override
     public WorkShift update(int id, WorkShift workShift) {
-        return null;
+        WorkShift entity = this.getById(id);
+        entity.setDescription(workShift.getDescription());
+        return this.save(entity);
     }
 
     @Override
     public void delete(int id) {
-
+        WorkShift entity = this.getById(id);
+        this.workShiftRepository.delete(entity);
     }
 
 }

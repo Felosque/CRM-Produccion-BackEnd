@@ -1,5 +1,6 @@
 package com.crmunibague.crmunibague.workshift;
 
+import com.crmunibague.crmunibague.production.Production;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -35,6 +36,11 @@ public class WorkShiftRESTController {
     public ResponseEntity<WorkShift> getByID(@PathVariable("code") int code)
     {
         return ResponseEntity.ok().body(this.workShiftService.getById(code));
+    }
+
+    @PutMapping(path = "/{id}")
+    public ResponseEntity<WorkShift> update(@PathVariable("id") int id, @RequestBody WorkShift entity){
+        return ResponseEntity.ok().body(this.workShiftService.update(id,entity));
     }
 
 }

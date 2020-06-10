@@ -1,5 +1,7 @@
 package com.crmunibague.crmunibague.workshift;
 
+import org.hibernate.jdbc.Work;
+
 import java.io.Serializable;
 import javax.persistence.*;
 import java.util.List;
@@ -23,6 +25,10 @@ public class WorkShift implements Serializable {
 	private String description;
 
 	public WorkShift() {
+	}
+
+	public WorkShift(Integer code){
+		this.code = code;
 	}
 
 	public Integer getCode() {

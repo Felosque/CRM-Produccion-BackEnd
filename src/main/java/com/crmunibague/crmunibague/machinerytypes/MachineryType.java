@@ -11,12 +11,11 @@ import java.util.List;
  */
 @Entity
 @Table(name="machinery_types")
-@NamedQuery(name="MachineryType.findAll", query="SELECT m FROM MachineryType m")
 public class MachineryType implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer code;
 
 	private String description;

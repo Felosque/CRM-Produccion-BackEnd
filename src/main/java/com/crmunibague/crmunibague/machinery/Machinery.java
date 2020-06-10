@@ -8,18 +8,13 @@ import com.crmunibague.crmunibague.machinestate.MachineState;
 import java.io.Serializable;
 import javax.persistence.*;
 
-
-/**
- * The persistent class for the machinery database table.
- * 
- */
 @Entity
-@NamedQuery(name="Machinery.findAll", query="SELECT m FROM Machinery m")
+@Table(name="machinery")
 public class Machinery implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer code;
 
 	private String name;
