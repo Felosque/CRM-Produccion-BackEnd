@@ -35,6 +35,11 @@ public class HumanResourceRESTController {
         return ResponseEntity.ok().body(this.humanResourceService.getById(id));
     }
 
+    @GetMapping(path = "/DarEmpleadosDisponibles")
+    public ResponseEntity<List<HumanResource>> getByActualWorkshift(){
+        return ResponseEntity.ok().body(this.humanResourceService.getAllByWorkShift());
+    }
+
     @DeleteMapping(path = "/{id}")
     public Map<String, Boolean> delete(@PathVariable("id") int id){
         this.humanResourceService.delete(id);
@@ -47,5 +52,12 @@ public class HumanResourceRESTController {
     public ResponseEntity<HumanResource> update(@PathVariable int id, @RequestBody HumanResource humanResource){
         return ResponseEntity.ok().body(this.humanResourceService.update(id, humanResource));
     }
+
+    @GetMapping(path = "/TotalEmpleados")
+    public Integer getByTotalEmployess(){
+        return this.humanResourceService.getAll().size();
+    }
+
+
 
 }

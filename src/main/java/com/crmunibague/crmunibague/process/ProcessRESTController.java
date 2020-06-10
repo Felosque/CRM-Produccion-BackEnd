@@ -48,5 +48,9 @@ public class ProcessRESTController {
         return ResponseEntity.ok().body(this.processService.update(id, process));
     }
 
+    @GetMapping(path = "/TotalProcesos")
+    public Integer getTotalProcesses(){
+        return this.processService.getAll().size();
+    }
 
 }
