@@ -13,12 +13,11 @@ import java.util.List;
  */
 @Entity
 @Table(name="work_shifts")
-@NamedQuery(name="WorkShift.findAll", query="SELECT w FROM WorkShift w")
 public class WorkShift implements Serializable {
 	private static final long serialVersionUID = 1L;
 
 	@Id
-	@GeneratedValue(strategy=GenerationType.AUTO)
+	@GeneratedValue(strategy=GenerationType.IDENTITY)
 	private Integer code;
 
 	@Column(name = "description", length = 255)
