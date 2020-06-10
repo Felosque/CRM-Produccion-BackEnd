@@ -49,7 +49,6 @@ public class Machinery implements Serializable {
 	@JoinColumn(name="machinery_type")
 	private MachineryType machineryTypeBean;
 
-
 	public Machinery() {
 	}
 

@@ -5,6 +5,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.text.SimpleDateFormat;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -48,4 +50,63 @@ public class ProductionRESTController {
     public ResponseEntity<Production> update(@PathVariable("id") int id, @RequestBody Production entity){
         return ResponseEntity.ok().body(this.productionService.update(id,entity));
     }
+
+    @GetMapping(path = "/TiempoRestante")
+    public Map<Integer,String> getTiempoRestante(){
+        List<Production> productions = this.productionService.getAll();
+        Map<Integer,String> resultado = new HashMap<>();
+
+        for (int i = 0; i < productions.size(); i++)
+        {
+            Production actual = productions.get(i);
+            try {
+                resultado.put(actual.getCode() , darTiempoDiferencia(new SimpleDateFormat("dd/MM/yyyy").parse(actual.getExpirationDate())));
+            }
+            catch (Exception e)
+            {
+                resultado.put(actual.getCode() , "LA FECHA DE LA SOLICITUD ES INCORRECTA.");
+            }
+        }
+
+        return resultado;
+    }
+
+    public String darTiempoDiferencia(Date pFecha){
+
+        String respuesta = "";
+        Date fechaActual = new Date();
+        System.out.println(new SimpleDateFormat("dd/MM/yyyy").format(fechaActual) + " fecha actual.");
+        System.out.println(new SimpleDateFormat("dd/MM/yyyy").format(pFecha) + " fecha parametro.");
+
+        int diferencia=(int) ((pFecha.getTime()-fechaActual.getTime())/1000);
+
+        int dias=0;
+        int horas=0;
+        int minutos=0;
+
+        if(diferencia>86400) {
+            dias=(int)Math.floor(diferencia/86400);
+            diferencia=diferencia-(dias*86400);
+        }
+        if(diferencia>3600) {
+            horas=(int)Math.floor(diferencia/3600);
+            diferencia=diferencia-(horas*3600);
+        }
+        if(diferencia>60) {
+            minutos=(int)Math.floor(diferencia/60);
+            diferencia=diferencia-(minutos*60);
+        }
+
+        if(diferencia < 0){
+            respuesta = "SOLICITUD VENCIDA";
+        }
+        else
+        {
+            respuesta = dias+" días, "+horas+" horas, "+minutos+" minutos restantes";
+        }
+
+        return respuesta;
+    }
+
 }
+

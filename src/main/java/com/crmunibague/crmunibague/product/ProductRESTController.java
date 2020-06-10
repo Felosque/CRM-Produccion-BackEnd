@@ -55,4 +55,10 @@ public class ProductRESTController {
         return ResponseEntity.ok().body(this.productService.update(id, product));
     }
 
+    @GetMapping(path = "TotalProductos")
+    public Integer getTotalProductos()
+    {
+        return this.productService.getAll().size();
+    }
+
 }

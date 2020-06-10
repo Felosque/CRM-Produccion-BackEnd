@@ -4,6 +4,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import javax.crypto.Mac;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -47,5 +48,80 @@ public class MachineryRESTController {
     public ResponseEntity<Machinery> update(@PathVariable int id, @RequestBody Machinery machinery){
         return ResponseEntity.ok().body(this.machineryService.update(id, machinery));
     }
+
+    @GetMapping(path = "/TotalMaquinas")
+    public Integer getTotalMaquinas() {
+        return this.machineryService.getAll().size();
+    }
+
+    @GetMapping(path = "/TotalDisponibles")
+    public Integer getDisponibles() {
+        List<Machinery> totalMaquinas = this.machineryService.getAll();
+        Integer counter = 0;
+
+        for(int i = 0; i < totalMaquinas.size(); i ++){
+            Machinery actual = totalMaquinas.get(i);
+            if(actual.getMachineStateBean().getDescription().contains("DISPONIBLE")){
+                counter++;
+            }
+
+        }
+
+        return counter;
+
+    }
+
+    @GetMapping(path = "/TotalOcupados")
+    public Integer getOcupados() {
+        List<Machinery> totalMaquinas = this.machineryService.getAll();
+        Integer counter = 0;
+
+        for(int i = 0; i < totalMaquinas.size(); i ++){
+            Machinery actual = totalMaquinas.get(i);
+            if(actual.getMachineStateBean().getDescription().contains("OCUPADO")){
+                counter++;
+            }
+
+        }
+
+        return counter;
+
+    }
+
+    @GetMapping(path = "/TotalReparacion")
+    public Integer getReparacion() {
+        List<Machinery> totalMaquinas = this.machineryService.getAll();
+        Integer counter = 0;
+
+        for(int i = 0; i < totalMaquinas.size(); i ++){
+            Machinery actual = totalMaquinas.get(i);
+            if(actual.getMachineStateBean().getDescription().contains("REPARACION")){
+                counter++;
+            }
+
+        }
+
+        return counter;
+
+    }
+
+    @GetMapping(path = "/TotalMantenimiento")
+    public Integer getMantenimiento() {
+        List<Machinery> totalMaquinas = this.machineryService.getAll();
+        Integer counter = 0;
+
+        for(int i = 0; i < totalMaquinas.size(); i ++){
+            Machinery actual = totalMaquinas.get(i);
+            if(actual.getMachineStateBean().getDescription().contains("MANTENIMIENTO")){
+                counter++;
+            }
+
+        }
+
+        return counter;
+
+    }
+
+
 
 }
