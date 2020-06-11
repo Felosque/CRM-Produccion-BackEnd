@@ -28,12 +28,18 @@ public class ProductionDetailsPk implements Serializable {
         this.productBatch = productBatch;
     }
 
+    public Integer getProductsCode() {
+        return productsCode;
+    }
+
     public void setProductsCode(Integer productsCode) {
         this.productsCode = productsCode;
     }
+
     public Integer getProductBatch() {
-        return this.productBatch;
+        return productBatch;
     }
+
     public void setProductBatch(Integer productBatch) {
         this.productBatch = productBatch;
     }
