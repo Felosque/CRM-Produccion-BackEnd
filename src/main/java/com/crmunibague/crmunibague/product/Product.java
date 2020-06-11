@@ -18,6 +18,11 @@ public class Product implements Serializable {
 	public Product() {
 	}
 
+	public Product(Integer code)
+	{
+		this.code = code;
+	}
+
 	public Integer getCode() {
 		return this.code;
 	}
